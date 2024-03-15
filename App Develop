@@ -1,0 +1,26 @@
+/* What does the app's SQL look like? */
+CREATE TABLE ghin (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    handicap INTEGER,
+    age INTEGER);
+
+INSERT INTO ghin (name, handicap, age) VALUES ("Paul", 15, 45);
+INSERT INTO ghin (name, handicap, age) VALUES ("Mike", 7, 32);
+INSERT INTO ghin (name, handicap, age) VALUES ("Sarah", 10, 28);
+INSERT INTO ghin (name, handicap, age) VALUES ("Jack", 3, 26);
+
+/*Ghi n Table*/
+SELECT * FROM ghin;
+
+/*Update*/
+UPDATE ghin SET name = "Michael"
+WHERE id = 2;
+
+SELECT * FROM ghin;
+
+/*Delete*/
+DELETE FROM ghin
+WHERE id = 1;
+
+SELECT * FROM ghin;
