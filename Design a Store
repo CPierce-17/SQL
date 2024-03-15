@@ -1,0 +1,19 @@
+CREATE TABLE purehockey (id INTEGER PRIMARY KEY, item TEXT, brand TEXT, quantity INTEGER, price INTEGER);
+INSERT INTO purehockey VALUES(1, "stick", "Bauer", 11, 249);
+INSERT INTO purehockey VALUES(2, "gloves", "CCM", 15, 99);
+INSERT INTO purehockey VALUES(3, "helmet", "Bauer", 7, 110);
+INSERT INTO purehockey VALUES(4, "stick", "Warrior", 15, 229);
+INSERT INTO purehockey VALUES(5, "pants", "CCM", 8, 99);
+INSERT INTO purehockey VALUES(6, "helmet", "Warrior", 10, 110);
+INSERT INTO purehockey VALUES(7, "gloves", "True", 13, 79);
+INSERT INTO purehockey VALUES(8, "gloves", "Bauer", 18, 105);
+INSERT INTO purehockey VALUES(9, "stick", "True", 20, 199);
+INSERT INTO purehockey VALUES(10, "helmet", "CCM", 12, 120);
+INSERT INTO purehockey VALUES(11, "pants", "Bauer", 10, 89);
+INSERT INTO purehockey VALUES(12, "gloves", "Warrior", 15, 79);
+INSERT INTO purehockey VALUES(13, "pants", "Warrior", 20, 99);
+INSERT INTO purehockey VALUES(14, "stick", "Sherwood", 25, 150);
+INSERT INTO purehockey VALUES(15, "gloves", "Sherwood", 7,99);
+
+/*Brands ordered by price*/
+SELECT brand, quantity, price FROM purehockey ORDER BY price;
