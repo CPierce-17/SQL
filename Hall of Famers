@@ -1,0 +1,33 @@
+/* Create table about the people and what they do here */
+CREATE TABLE hall_of_famers ( 
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fullname TEXT,
+    age INTEGER,
+    primary_team TEXT);
+    
+INSERT INTO hall_of_famers (fullname, age, primary_team) VALUES ("Wayne Gretzky", 63, "Oilers");
+INSERT INTO hall_of_famers (fullname, age, primary_team) VALUES ("Bobby Orr", 75, "Bruins");
+INSERT INTO hall_of_famers (fullname, age, primary_team) VALUES ("Nicklas Lidstrom", 53, "Red Wings");
+INSERT INTO hall_of_famers (fullname, age, primary_team) VALUES ("Steve Yzerman", 58, "Red Wings");
+INSERT INTO hall_of_famers (fullname, age, primary_team) VALUES 
+("Joe Sakic", 54, "Colorodo Avalanche");
+INSERT INTO hall_of_famers (fullname, age, primary_team) VALUES ("Mark Messier", 63, "Oilers");
+
+CREATE TABLE stats (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    hall_of_famers_id INTEGER,
+    points_total INTEGER,
+    years_played INTEGER);
+    
+INSERT INTO stats (hall_of_famers_id, points_total, years_played) VALUES (1, 2857, 21);
+INSERT INTO stats (hall_of_famers_id, points_total, years_played) VALUES (2, 915, 11);
+INSERT INTO stats (hall_of_famers_id, points_total, years_played) VALUES (3, 1142, 21);
+INSERT INTO stats (hall_of_famers_id, points_total, years_played) VALUES (4, 1755, 22);
+INSERT INTO stats (hall_of_famers_id, points_total, years_played) VALUES (5, 1641, 21);
+INSERT INTO stats (hall_of_famers_id, points_total, years_played) VALUES (6, 1887, 25);
+
+/*Hall of Famer Stats*/
+SELECT hall_of_famers.fullname, stats.points_total 
+FROM hall_of_famers
+JOIN stats
+ON hall_of_famers.id = stats.hall_of_famers_id;
