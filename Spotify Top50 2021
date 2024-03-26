@@ -1,0 +1,41 @@
+CREATE TABLE BIT_DB.Spotifydata (
+    id               [INTEGER PRIMANY KEY],
+    artist_name      VARCHAR               NOT NULL,
+    track_name       VARCHAR               NOT NULL,
+    track_id         VARCHAR               NOT NULL,
+    popularity       INTEGER               NOT NULL,
+    dancebility      DECIMAL (4, 3)        NOT NULL,
+    energy           DECIMAL (4, 3)        NOT NULL,
+    song_key         INTEGER               NOT NULL,
+    loudness         DECIMAL (5, 3)        NOT NULL,
+    song_mode        INTEGER               NOT NULL,
+    speechiness      DECIMAL (5, 4)        NOT NULL,
+    acousticness     DECIMAL (6, 5)        NOT NULL,
+    instrumentalness DECIMAL (8, 7)        NOT NULL,
+    liveness         DECIMAL (5, 4)        NOT NULL,
+    valence          DECIMAL (4, 3)        NOT NULL,
+    tempo            DECIMAL (6, 3)        NOT NULL,
+    duration_ms      INTEGER               NOT NULL,
+    time_signature   INTEGER               NOT NULL
+);
+
+#Inserted data from spotify_top50_2021.cvs
+
+SELECT * FROM BIT_DB.Spotifydata;
+
+--Who where the least popular artist in 2021 among the Top50?
+SELECT artist_name, Avg(popularity)
+FROM Spotifydata
+Group By artist_name
+ORDER BY popularity asc
+LIMIT 10;
+
+--Who had the Highest energy in the Top50 and what was the track?
+SELECT artist_name, track_name, MAX(energy)
+FROM Spotifydata;
+
+--How many Top50 hits did Ed Sheeran have in 2021?
+SELECT artist_name, track_name, popularity
+FROM Spotifydata
+WHERE artist_name = 'Doja Cat'
+ORDER BY Popularity desc;
