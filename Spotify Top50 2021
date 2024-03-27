@@ -39,3 +39,16 @@ SELECT artist_name, track_name, popularity
 FROM Spotifydata
 WHERE artist_name = 'Doja Cat'
 ORDER BY Popularity desc;
+
+-- CTE Practice on data
+WITH popularity_average_CTE AS (
+    SELECT s.artist_name,
+           AVG(s.popularity) AS average_popularity
+      FROM Spotifydata s
+     GROUP BY s.artist_name
+)
+SELECT artist_name,
+       average_popularity,
+       'Top Star' AS tag
+  FROM popularity_average_CTE
+ WHERE average_popularity >= 90;
